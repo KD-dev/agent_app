@@ -33,10 +33,11 @@ public class BoardPost {
     private int hit_count;
 
     @Column(name = "regDate")
-    @Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
+    //@Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
     private int regDate;
 
     @Column(name = "updateDate")
+    //@Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
     private int updateDate;
 
 }

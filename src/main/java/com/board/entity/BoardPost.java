@@ -5,9 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters.LocalDateTimeConverter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -19,7 +20,7 @@ public class BoardPost {
     @Id
     @GeneratedValue
     @Column(name = "seqNo")
-    private long seqNo;
+    private int seqNo;
 
     @Column(name = "title")
     @NotEmpty
@@ -33,11 +34,11 @@ public class BoardPost {
     private int hit_count;
 
     @Column(name = "regDate")
-    //@Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
-    private int regDate;
+    @Convert(converter = LocalDateTimeConverter.class)
+    private LocalDateTime regDate;
 
     @Column(name = "updateDate")
-    //@Convert(converter = Jsr310JpaConverters.LocalDateTimeConverter.class)
-    private int updateDate;
+    @Convert(converter = LocalDateTimeConverter.class)
+    private LocalDateTime updateDate;
 
 }
